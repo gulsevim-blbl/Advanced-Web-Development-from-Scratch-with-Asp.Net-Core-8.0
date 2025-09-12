@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Home Index Page</h1>
-</body>
-</html>
+<h1>Home Page</h1>
+@* Bu durumda index.cshtml Render edildiğinde buradaki h1 içeriği doğrudan RenderBody()'nin içerisine kopyalanacak, @section Header ise RenderSection()'da kopyalanacak yerini tanımlamış olduk böylelikle *@
+@section Header {
+    @await Html.PartialAsync("_Header")
+}

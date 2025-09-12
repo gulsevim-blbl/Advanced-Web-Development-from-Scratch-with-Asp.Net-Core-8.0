@@ -24,21 +24,26 @@ namespace aspnetcore_basics.Controllers //ilk olarak namespace Oluşturacağız.
             kurs.Id = 1; //Id property'sine değer atadık.
             kurs.Title = "Asp.Net Core 8.0"; //Title property'sine değer atadık.
             kurs.Description = "Asp.Net Core 8.0 Eğitimi"; //Description property'sine değer atadık.
+            kurs.Image = "1.jpg"; //Image property'sine değer atadık.
+            
+            return View(kurs); //View döndürüyoruz. Views klasörünün içindeki Course klasörünün içindeki Index.cshtml dosyasını döndürüyor.
+        }
+         public IActionResult Details() //İndex action methodu oluşturduk.
+        {
+            var kurs = new Course(); //Course sınıfından bir nesne oluşturduk.
 
+            kurs.Id = 1; //Id property'sine değer atadık.
+            kurs.Title = "Asp.Net Core 8.0"; //Title property'sine değer atadık.
+            kurs.Description = "Asp.Net Core 8.0 Eğitimi"; //Description property'sine değer atadık.
+            kurs.Image = "1.jpg"; //Image property'sine değer atadık.
+            
             return View(kurs); //View döndürüyoruz. Views klasörünün içindeki Course klasörünün içindeki Index.cshtml dosyasını döndürüyor.
         }
         
         public IActionResult List() //List action methodu oluşturduk.
         {
-            
-            var kurslar = new List<Course> //Course sınıfından bir liste oluşturduk.
-            {
-                new Course { Id = 1, Title = "Asp.Net Core 8.0", Description = "Asp.Net Core 8.0 Eğitimi" },
-                new Course { Id = 2, Title = "C# Temel", Description = "C# Temel Eğitimi" },
-                new Course { Id = 3, Title = "JavaScript Temel", Description = "JavaScript Temel Eğitimi" }
-            };
-            
-            return View("CourseList", kurslar); //Views klasörünün içindeki Course klasörünün içindeki CourseList.cshtml dosyasını döndürüyor.
+
+            return View("CourseList", Repostory.Courses); //Views klasörünün içindeki Course klasörünün içindeki CourseList.cshtml dosyasını döndürüyor.
         }
     }
-}
+} 
