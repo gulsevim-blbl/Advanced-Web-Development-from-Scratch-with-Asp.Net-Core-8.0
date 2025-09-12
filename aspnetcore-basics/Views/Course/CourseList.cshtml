@@ -1,0 +1,21 @@
+@model List<Course> <!-- Model olarak Course sınıfından bir liste alıyoruz, generic bir list tanımlıyoruz burada -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>Course List Page</h1>
+     <!--bir döngü ile sayfaya yazdırmamız gerekiyor   -->
+    @foreach (var course in Model) 
+    {
+        <div id="course_@course.Id"> <!-- Course sınıfının Id özelliğini kullanarak benzersiz bir id oluşturuyoruz --  >
+            <h2>@course.Title</h2> <!-- Course sınıfının Title özelliğini yazdırıyoruz -->
+            <p>@course.Description</p> <!-- Course sınıfının Description özelliğini yazdırıyoruz -->
+        </div>
+    }
+</body>
+</html>
