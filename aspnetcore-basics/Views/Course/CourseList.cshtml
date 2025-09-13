@@ -1,8 +1,12 @@
-@model List<Course>
-  <!-- Model olarak Course sınıfından bir liste alıyoruz, generic bir list tanımlıyoruz burada -->
+@model List<aspnetcore_basics.Models.Course>
+<!-- Model olarak Course sınıfından bir liste alıyoruz, generic bir list tanımlıyoruz burada -->
 
-  <h1>Course List Page</h1>
-  @foreach (var course in Model) { @await Html.PartialAsync("_Course", course)
-  <!-- _Course.cshtml dosyasını burada her bir course için çağırıyoruz ve course'u parametre olarak gönderiyoruz -->
-  }
-</Course>
+<h1>Course List Page</h1>
+
+@foreach (var course in Model) {
+    if(course.IsActive) { 
+        @await Html.PartialAsync("_Course", course) 
+    }
+    <!-- _Course.cshtml dosyasını burada her bir course için çağırıyoruz ve course'u parametre olarak gönderiyoruz -->
+}
+

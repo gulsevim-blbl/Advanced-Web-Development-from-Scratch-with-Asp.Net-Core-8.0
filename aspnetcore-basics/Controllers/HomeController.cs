@@ -9,7 +9,7 @@ public class HomeController : Controller
   
     public IActionResult Index()
     {
-        return View();
+        return View(Repostory.Courses);
     }
 
     public IActionResult Contact()
